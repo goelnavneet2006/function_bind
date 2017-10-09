@@ -1,0 +1,20 @@
+<script>
+  Function.prototype.myBind = function(thisRef) {
+    var funcToBind = this;
+
+    return function(...args) {
+      funcToBind.apply(thisRef, args);
+    }
+  }
+
+  function test(a, b, c) {
+    console.log(this, a, b, c);
+  }
+
+  var thisObj = {
+    a: 1
+  };
+
+  var boundTest = test.myBind(thisObj);
+  boundTest(1,2);
+</script>
