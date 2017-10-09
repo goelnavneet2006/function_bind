@@ -1,9 +1,9 @@
 <script>
-  Function.prototype.myBind = function(thisRef) {
+  Function.prototype.myBind = function(thisRef, ...args1) {
     var funcToBind = this;
 
-    return function(...args) {
-      funcToBind.apply(thisRef, args);
+    return function(...args2) {
+      funcToBind.call(thisRef, ...args1, ...args2);
     }
   }
 
@@ -15,6 +15,6 @@
     a: 1
   };
 
-  var boundTest = test.myBind(thisObj);
-  boundTest(1,2);
+  var boundTest = test.myBind(thisObj, 1);
+  boundTest(2,3);
 </script>
