@@ -3,7 +3,7 @@
     var funcToBind = this;
 
     return function(...args2) {
-      funcToBind.call(thisRef, ...args1, ...args2);
+      funcToBind.call(thisRef, ...args1, ...args2); // funcToBind.apply(thisRef, [...args1, ...args2]);
     }
   }
 
